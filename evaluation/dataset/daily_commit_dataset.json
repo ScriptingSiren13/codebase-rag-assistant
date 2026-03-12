@@ -1,0 +1,34 @@
+[
+  {
+    "query": "What was done on day 01",
+    "expected_doc": "day-01/notes.md"
+  },
+  {
+    "query": "What was done on day 02",
+    "expected_doc": "day-02/notes.md"
+  },
+  {
+    "query": "Explain the work done on day 03",
+    "expected_doc": "day-03/notes.md"
+  },
+  {
+    "query": "Summarize day 04",
+    "expected_doc": "day-04/notes.md"
+  },
+  {
+    "query": "What was implemented on day 05",
+    "expected_doc": "day-05/notes.md"
+  },
+  {
+    "query": "Explain the notes for day 10",
+    "expected_doc": "day-10/notes.md"
+  },
+  {
+    "query": "What was built on day 15",
+    "expected_doc": "day-15/notes.md"
+  },
+  {
+    "query": "Summarize day 20",
+    "expected_doc": "day-20/notes.md"
+  }
+]

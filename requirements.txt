@@ -7,3 +7,10 @@ openai
 python-dotenv
 gitpython
 streamlit
+
+# evaluation
+ragas
+datasets
+
+# experiment tracking
+mlflow

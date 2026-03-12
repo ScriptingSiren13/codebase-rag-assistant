@@ -1,0 +1,42 @@
+[
+  {
+    "query": "How does the CSV loader load CSV files?",
+    "expected_doc": "csv_loader.py"
+  },
+  {
+    "query": "How is a custom API loader implemented?",
+    "expected_doc": "API_loader.py"
+  },
+  {
+    "query": "How does the JSON loader read JSON data?",
+    "expected_doc": "JSON_loader.py"
+  },
+  {
+    "query": "How does the directory loader load files from a folder?",
+    "expected_doc": "directory_loader.py"
+  },
+  {
+    "query": "What is the purpose of the lazy loader?",
+    "expected_doc": "lazy_load.py"
+  },
+  {
+    "query": "How are PDF files loaded using PyPDF loader?",
+    "expected_doc": "pypdf_loader.py"
+  },
+  {
+    "query": "How does the text loader read text files?",
+    "expected_doc": "text_loader.py"
+  },
+  {
+    "query": "How is the text loader used in the example script?",
+    "expected_doc": "text_loader_use.py"
+  },
+  {
+    "query": "How does the web-based loader extract data from websites?",
+    "expected_doc": "webBase_loader.py"
+  },
+  {
+    "query": "How is the web-based loader used in practice?",
+    "expected_doc": "webBase_loader_use.py"
+  }
+]
