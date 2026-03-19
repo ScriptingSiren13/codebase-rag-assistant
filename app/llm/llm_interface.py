@@ -4,38 +4,50 @@ import os
 
 load_dotenv()
 
+
 class LLMInterface:
+
     def __init__(self):
-        self.llm=ChatOpenAI(
+
+        self.llm = ChatOpenAI(
             model="gpt-4o-mini",
             temperature=0
         )
-    
+
     def generate_answer(self, query, retrieved_chunks):
 
-        context=""
+        # Build context from retrieved chunks
+        context = ""
 
         for item in retrieved_chunks:
-            context+=item["chunk"] + "\n"
+
+            context += f"File: {item['file_path']}\n"
+            context += item["chunk"]
+            context += "\n\n"
 
         prompt = f"""
-You are a helpful AI that explains code.
+You are an AI assistant that explains code from a repository.
 
-Context:
+Use the provided code context to answer the question.
+
+Important rules:
+- Use the code snippets to infer the answer.
+- The answer may not be explicitly written; infer it from the code.
+- Mention relevant files if useful.
+- Only say you don't have enough information if the context is completely unrelated.
+
+Code Context:
 {context}
 
 Question:
 {query}
 
-Answer clearly. If you do not know the answer-say I don't have sufficient info.
+Answer:
 """
-        
-        response=self.llm.invoke(prompt)
+
+        response = self.llm.invoke(prompt)
 
         return response.content
-    
-
-
 
 
 # Test block
@@ -64,7 +76,7 @@ if __name__ == "__main__":
     vector_db.build_index(embedded_chunks)
 
     # 5 Retrieve relevant chunks
-    retriever = Retriever(vector_db, model)
+    retriever = Retriever(vector_db, model, chunks)
 
     query = "Explain the Employee class"
 

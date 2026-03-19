@@ -3,29 +3,26 @@ def chunk_code(files, chunk_size=500, overlap=50):
     chunks = []
 
     for file in files:
-
         content = file["content"]
         file_path = file["file_path"]
 
         start = 0
-
         while start < len(content):
-
             end = start + chunk_size
-
             chunk_text = content[start:end]
 
+            # Normalize text + including file path for better retrieval
             chunks.append({
                 "file_path": file_path,
-                "chunk": chunk_text
+                "chunk": (file_path + "\n" + chunk_text).lower()
             })
 
             start = end - overlap
 
     return chunks
-    
 
-#For testing:
+
+# For testing
 if __name__ == "__main__":
 
     from repo_loader import load_repository
@@ -36,5 +33,3 @@ if __name__ == "__main__":
 
     print("Total chunks:", len(chunks))
     print(chunks[0])
-
-
